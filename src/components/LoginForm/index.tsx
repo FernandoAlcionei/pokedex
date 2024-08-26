@@ -6,8 +6,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import TextInput from '../Form/TextInput';
 import Link from '../Link';
+import { Credentials } from '@/types/login.types';
 
-const LoginForm = () => {
+type LoginFormProps = {
+    onSubmit: (credentials: Credentials) => void;
+}
+
+const LoginForm = ({ onSubmit }: LoginFormProps) => {
     const t = useTranslations();
 
     const formSchema = z
@@ -24,13 +29,9 @@ const LoginForm = () => {
         },
     });
 
-    const onSubmit = async (formValues: z.infer<typeof formSchema>) => {
-        console.log(formValues);
-    };
-
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 flex flex-col gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <TextInput
                     label={t('username')}
                     placeholder={t('enterUsername')}
