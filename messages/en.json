@@ -2,15 +2,15 @@
   "HomePage": {
     "title": "Hello world!"
   },
-  "SignInPage": {
-    "signIn": "Sign in",
-    "username": "Username",
-    "enterUsername": "Enter username",
-    "password": "Password",
-    "enterPassword": "Enter password",
-    "rememberMe": "Remember me",
-    "forgotYourPassword": "Forgot your password?",
-    "dontHaveAnAccount": "Don't have an account?",
-    "registerHere": "Register here"
-  }
+  "signIn": "Sign in",
+  "username": "Username",
+  "enterUsername": "Enter username",
+  "password": "Password",
+  "enterPassword": "Enter password",
+  "rememberMe": "Remember me",
+  "forgotYourPassword": "Forgot your password?",
+  "dontHaveAnAccount": "Don't have an account?",
+  "registerHere": "Register here",
+  "usernameIsRequired": "Username is required",
+  "passwordIsRequired": "Password is required"
 }
