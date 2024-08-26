@@ -1,0 +1,16 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "SignInPage": {
+    "signIn": "Sign in",
+    "username": "Username",
+    "enterUsername": "Enter username",
+    "password": "Password",
+    "enterPassword": "Enter password",
+    "rememberMe": "Remember me",
+    "forgotYourPassword": "Forgot your password?",
+    "dontHaveAnAccount": "Don't have an account?",
+    "registerHere": "Register here"
+  }
+}
