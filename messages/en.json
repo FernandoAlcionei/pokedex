@@ -1,7 +1,5 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
-  },
+  "title": "Hello world!",
   "signIn": "Sign in",
   "username": "Username",
   "enterUsername": "Enter username",
