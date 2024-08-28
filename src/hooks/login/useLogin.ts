@@ -6,9 +6,7 @@ import apiClient from "@/lib/api";
 export const useLogin = (): UseMutationResult<LoginResponse, AxiosError, LoginPayload> => (
 	useMutation({
 		mutationFn: async (payload: LoginPayload) => {
-			const { data } = await apiClient.post<LoginResponse>('/api/login', {
-				...payload
-			});
+			const { data } = await apiClient.post<LoginResponse>('/api/login', payload);
 			return data;
 		}
 	})

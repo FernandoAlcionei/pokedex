@@ -5,11 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"w-full py-3 px-4 text-sm tracking-wide rounded-lg text-white focus:outline-none",
+	"w-full py-3 px-4 text-lg tracking-wide rounded-lg text-white focus:outline-none disabled:pointer-events-none disabled:opacity-30",
 	{
 		variants: {
 			variant: {
-				default: "bg-primary text-primary-foreground hover:bg-primary/90",
+				default: "bg-primary text-primary-foreground hover:opacity-90 text-white",
+				link: 'text-black w-auto text-primary hover:opacity-70'
 			},
 			size: {
 				default: "h-10 px-4 py-2",
@@ -37,6 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			<Comp
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref}
+				type="button"
 				{...props}
 			/>
 		);

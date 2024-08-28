@@ -1,14 +1,15 @@
 {
   "title": "Hello world!",
-  "signIn": "Sign in",
+  "sign-in": "Sign in",
   "username": "Username",
-  "enterUsername": "Enter username",
+  "enter-username": "Enter username",
   "password": "Password",
-  "enterPassword": "Enter password",
-  "rememberMe": "Remember me",
-  "forgotYourPassword": "Forgot your password?",
-  "dontHaveAnAccount": "Don't have an account?",
-  "registerHere": "Register here",
-  "usernameIsRequired": "Username is required",
-  "passwordIsRequired": "Password is required"
+  "enter-password": "Enter password",
+  "remember-me": "Remember me",
+  "forgot-your-password": "Forgot your password?",
+  "dont-have-an-account": "Don't have an account?",
+  "register-here": "Register here",
+  "username-is-required": "Username is required",
+  "password-is-required": "Password is required",
+  "logout": "Logout"
 }

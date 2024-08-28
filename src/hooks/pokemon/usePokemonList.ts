@@ -1,12 +1,19 @@
 import apiClient from "@/lib/api";
-import { PokemonList } from "@/types/pokemon.types";
+import { PokemonFilter, PokemonList } from "@/types/pokemon.types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 
-export const usePokemonList = (): UseQueryResult<PokemonList> => (
+export const usePokemonList = (filter: PokemonFilter): UseQueryResult<PokemonList> => (
 	useQuery<PokemonList>({
 		queryKey: ["pokemonList"],
 		queryFn: async () => {
-			const { data } = await apiClient.get<PokemonList>(`/api/pokemon?limit=100&offset=1`);
+			const offset = (filter.page * filter.pageSize) - filter.pageSize;
+			const { data } = await apiClient.get<PokemonList>(`/api/pokemon`, {
+				params: {
+					limit: filter.pageSize,
+					offset,
+					search: filter.search
+				}
+			});
 			return data;
 		},
 		refetchOnWindowFocus: false

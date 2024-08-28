@@ -5,8 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import TextInput from '../Form/TextInput';
-import Link from '../Link';
 import { Credentials } from '@/types/login.types';
+import Link from 'next/link';
 
 type LoginFormProps = {
     onSubmit: (credentials: Credentials) => void;
@@ -17,8 +17,8 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
 
     const formSchema = z
         .object({
-            username: z.string().min(1, { message: t('usernameIsRequired') }),
-            password: z.string().min(1, { message: t('passwordIsRequired') }),
+            username: z.string().min(1, { message: t('username-is-required') }),
+            password: z.string().min(1, { message: t('password-is-required') }),
         });
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -34,7 +34,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <TextInput
                     label={t('username')}
-                    placeholder={t('enterUsername')}
+                    placeholder={t('enter-username')}
                     name="username"
                     form={form}
                 />
@@ -42,28 +42,25 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
                 <TextInput
                     type="password"
                     label={t('password')}
-                    placeholder={t('enterPassword')}
+                    placeholder={t('enter-password')}
                     name="password"
                     form={form}
                 />
 
-                <Link
-                    className="text-sm"
-                    href="javascript:void(0);"
-                    label={t('forgotYourPassword')}
-                />
+                <Link href="#" className="text-primary hover:underline">
+                    {t('forgot-your-password')}
+                </Link>
 
                 <Button type="submit">
-                    {t('signIn')}
+                    {t('sign-in')}
                 </Button>
 
                 <p className="text-gray-800 text-sm flex justify-center gap-1">
-                    {t('dontHaveAnAccount')}
-                    
-                    <Link
-                        href="javascript:void(0);"
-                        label={t('registerHere')}
-                    />
+                    {t('dont-have-an-account')}
+
+                    <Link href="#" className="text-primary hover:underline">
+                        {t('register-here')}
+                    </Link>
                 </p>
             </form>
         </Form>
