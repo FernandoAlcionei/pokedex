@@ -47,6 +47,7 @@ export default function DashboardPage() {
   const onFavoritesChange = () => {
     setFilter({
       ...filter,
+      page: 1,
       favorites: !filter.favorites
     })
   }
