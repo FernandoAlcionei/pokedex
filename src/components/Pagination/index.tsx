@@ -49,6 +49,7 @@ const Pagination = ({
   return (
     <ul className="flex">
       <Button
+        data-testid="previous"
         variant="link"
         disabled={isFirstPage()}
         onClick={onPrevious}
@@ -80,6 +81,7 @@ const Pagination = ({
       }
 
       <Button
+        data-testid="next"
         variant="link"
         className="p-2 sm:p-4"
         disabled={isLastPage()}

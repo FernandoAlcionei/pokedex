@@ -1,18 +1,19 @@
-"use client";
 import SearchInput from "../SearchInput";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { useLogout } from "@/hooks/login/useLogout";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-const Navbar = () => {
+type NavbarProps = {
+    logout: () => void;
+}
+
+const Navbar = ({ logout }: NavbarProps) => {
     const router = useRouter()
-    const { mutateAsync: logout } = useLogout();
     const t = useTranslations();
 
     const onClickLogout = async () => {
-        await logout(true);
+        logout();
         router.push('/');
     }
 

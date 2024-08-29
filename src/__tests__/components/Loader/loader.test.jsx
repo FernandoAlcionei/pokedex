@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import Loader from "@/components/Loader";
 
-describe("Loader", () => {
-  it("should render correctly", () => {
+describe("Loader Component", () => {
+  it("should render the Loader component correctly", () => {
     const { container } = render(
       <Loader />
     );

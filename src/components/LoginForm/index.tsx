@@ -31,7 +31,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+            <form onSubmit={form.handleSubmit((data) => onSubmit(data))} className="flex flex-col gap-4">
                 <TextInput
                     label={t('username')}
                     placeholder={t('enter-username')}
