@@ -9,16 +9,14 @@ export async function GET(req: NextRequest) {
     limit: Number(searchParams.get('limit')) || 10,
     offset: Number(searchParams.get('offset')),
     search: searchParams.get('search') || '',
+    favorites: searchParams.get('favorites') == 'true',
   }
-
-  const pokemons = await pokemon.list(filter);
 
   // Since the API doesn't have a "favorite" attribute I had to use cookies to mock it
   const cookieValue = cookies().get('favorites')?.value;
   const favorites: number[] = cookieValue ? JSON.parse(cookieValue) : [];
-  pokemons.results.forEach((item) => {
-    item.favorite = favorites.some((pokemonId) => pokemonId === item.id);
-  })
+
+  const pokemons = await pokemon.list(filter, favorites);
 
   return NextResponse.json(pokemons)
 }

@@ -7,14 +7,16 @@ import { useState } from 'react';
 
 type PokemonCardProps = {
   pokemon: Pokemon;
-  onFavoriteClick: (id: number) => void;
+  addFavorite: (name: string) => void;
 }
 
-const PokemonCard = ({ pokemon, onFavoriteClick }: PokemonCardProps) => {
+const PokemonCard = ({ pokemon, addFavorite }: PokemonCardProps) => {
   const [favorite, setFavorite] = useState(pokemon.favorite);
 
   const onChangeFavorite = () => {
-    onFavoriteClick(pokemon.id);
+    // We need to save the pokemon's name as a favorite instead of the Id because the pokeapi that lists the pokemons does not return the pokemon's ID
+    // It just returns the names and a URL to the details API
+    addFavorite(pokemon.name);
     setFavorite(!favorite)
   }
 

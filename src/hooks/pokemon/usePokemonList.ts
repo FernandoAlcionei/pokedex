@@ -11,7 +11,8 @@ export const usePokemonList = (filter: PokemonFilter): UseQueryResult<PokemonLis
 				params: {
 					limit: filter.pageSize,
 					offset,
-					search: filter.search
+					search: filter.search,
+					favorites: filter.favorites
 				}
 			});
 			return data;

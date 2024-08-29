@@ -2,6 +2,7 @@
 import Loader from '@/components/Loader';
 import Pagination from '@/components/Pagination';
 import PokemonCard from '@/components/PokemonCard';
+import { Switch } from '@/components/ui/switch';
 import { useFavorite } from '@/hooks/pokemon/useFavorite';
 import { usePokemonList } from '@/hooks/pokemon/usePokemonList';
 import { useSearchParams } from 'next/navigation';
@@ -38,9 +39,16 @@ export default function DashboardPage() {
     })
   }
 
-  const onFavoriteClick = async (pokemonId: number) => {
-    await favorite({ pokemonId });
+  const addFavorite = async (pokemon: string) => {
+    await favorite({ pokemon });
     refreshPokemonList();
+  }
+
+  const onFavoritesChange = () => {
+    setFilter({
+      ...filter,
+      favorites: !filter.favorites
+    })
   }
 
   return (
@@ -51,12 +59,24 @@ export default function DashboardPage() {
 
       {data?.results.length ? (
         <div className="flex flex-col gap-10 h-full justify-between pt-4 sm:pt-12">
+          <div className="flex gap-4 items-center justify-end">
+            <Switch
+              id="switch-favorites"
+              checked={filter.favorites}
+              onCheckedChange={onFavoritesChange}
+            />
+
+            <label htmlFor="switch-favorites" className="text-primary cursor-pointer">
+              Favorites
+            </label>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {data.results.map((pokemon) => (
               <PokemonCard
                 key={`${pokemon.id}-${pokemon.name}`}
                 pokemon={pokemon}
-                onFavoriteClick={onFavoriteClick}
+                addFavorite={addFavorite}
               />
             ))}
           </div>

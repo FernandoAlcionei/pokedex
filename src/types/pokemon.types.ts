@@ -19,9 +19,9 @@ export type Pokemon = {
 }
 
 export type FavoritePayload = {
-	pokemonId: number;
+	pokemon: string;
 };
 
 export type FavoriteResponse = {
-    pokemonId: string;
+    pokemon: string;
 };
