@@ -13,6 +13,10 @@ Through the APIs developed by Pokeapi, the project displays a complete list of P
 - Lint
   - npm run lint
 
+### Credentials
+- Username: fernando
+- Password: pokemon
+
 ### Features
 - Unit tests using the React testing library
 - Lint
